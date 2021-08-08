@@ -3,6 +3,7 @@ package com.privoce.youtube_sphere_record.controller;
 import com.privoce.youtube_sphere_record.service.RecordService;
 import com.privoce.youtube_sphere_record.mapper.RecordMapper;
 import com.privoce.youtube_sphere_record.entity.Record;
+import com.alibaba.fastjson.JSONObject;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -26,7 +27,7 @@ public class RecordController {
     }
 
     @PostMapping("/reaction")
-    public void createReactionRecord() {
-
+    public void createReactionRecord(@RequestBody JSONObject reactionBody) {
+        recordService.createRecord(JSONObject.toJavaObject(reactionBody, Record.class));
     }
 }

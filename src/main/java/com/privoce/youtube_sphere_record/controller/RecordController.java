@@ -24,4 +24,9 @@ public class RecordController {
         System.out.println("get records request");
         return recordService.getRecordsById(userId);
     }
+
+    @PostMapping("/reaction")
+    public void createReactionRecord() {
+
+    }
 }
